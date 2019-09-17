@@ -1,0 +1,20 @@
+package com.example.demo.controllers;
+
+import org.springframework.cloud.stream.annotation.EnableBinding;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.model.TravelRequest;
+
+@RestController
+@EnableBinding(Source.class)
+public class SendRequest {
+
+	@PostMapping("/makeRequest")
+	public String dispatchRequest(@RequestBody TravelRequest request) {
+		return "One Request Sent";
+	}
+	
+	
+}

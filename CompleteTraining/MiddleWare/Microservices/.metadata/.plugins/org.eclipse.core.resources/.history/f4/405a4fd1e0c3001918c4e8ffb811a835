@@ -1,0 +1,10 @@
+package com.example.demo.entity;
+
+public class Players {
+
+	private long playerId;
+	private String playerName;
+	private String playerClub;
+	private double nationalRank;
+	private double interNationalRank;
+}

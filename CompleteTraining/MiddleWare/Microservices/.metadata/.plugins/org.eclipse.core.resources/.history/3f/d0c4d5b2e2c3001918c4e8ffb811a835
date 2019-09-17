@@ -1,0 +1,21 @@
+package com.example.demo.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.entity.Players;
+import com.example.demo.model.Payment;
+
+@Service
+public class PlayerService {
+	
+	@Autowired
+	private PagingAndSortingRepository<Players, Long> repo;
+	
+	
+	public Iterable<Players> findAll(){
+		return this.repo.findAll();
+	}
+}

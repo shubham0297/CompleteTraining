@@ -1,0 +1,32 @@
+package com.example.demo.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.entity.Players;
+import com.example.demo.repo.PlayerDetails;
+
+
+@Service
+public class PlayerService {
+	
+	@Autowired
+	private PagingAndSortingRepository<Players, Long> repo;
+	
+	
+	public List<Players> getByPlayerClub(String club,Integer pageNo,Integer pageSize,String sortBy) {
+		PlayerDetails playerRepo = (PlayerDetails)repo;
+		Pageable paging = Pageable.of// @formatter:off
+		 
+		// @formatter:on
+(pageNo,pageSize,Sort.by(sortBy));
+		List<Players> page = playerRepo.findByPlayerClub(club,paging);
+		return page;
+	}
+}

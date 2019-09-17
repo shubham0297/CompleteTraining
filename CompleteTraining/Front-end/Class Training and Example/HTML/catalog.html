@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tours</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">                 <!-- BOOTSTRAP -->
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!--<script>
+        var addRow = document.getElementById('addRow');            //var is variant         // will show error...as button is not rendered yet // so add script before closing body tag 
+        
+        addRow.addEventListener("click",function(){     // Callback funtion - Whenever a function takes another function as input. Not immediately called, when user performs action
+            console.log("Click event fired");
+        });
+                                 
+    </script>
+    -->
+</head>
+<body>
+    <header>
+        <h1 id="majHeading" class="blueBorder">Holiday Packages</h1>
+    </header>
+
+    <section>
+        <h2> Registered User</h2>
+        <table>                                 <!-- used -  table>thead+tbody+tfoot  -->
+            <caption> Weekend Packages</caption>
+            <thead>
+                <tr>                            <!-- used -tr>th*3  -->
+                    <th> Sr. No</th>
+                    <th> Package Name</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>                            <!-- Used  (tr>td*3)*3 -->
+                    <td>1</td>
+                    <td>Pondy</td>
+                    <td>4500</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Mahabalipuram</td>
+                    <td>6200</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Ooty</td>
+                    <td>7900 </td>
+                </tr>
+
+            </tbody>
+            <tfoot></tfoot>
+        </table>
+    </section>
+    
+    <button id="addRow"> Add Row </button>
+    <section>
+        <h2>Holiday Destinations</h2>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <img src="images/pondi.jpg" alt="Image of Pondicherry"  class="blueBorder" >
+                    <p>Pondicherry,Tamil Nadu</p>
+                </div>                <!-- Normal page has 12 colums ..so we are dividing it equally into 6 and 6 .. sm= small -->
+                <div class="col-sm-6">
+                    <img src="images/mahabalipuram.jpg" alt="Image of Mahabalipuram"  class="blueBorder">
+                    <p>Mahabalipuram,Tamil Nadu</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <img src="images/chennai_central.jpg" alt="Image of Chennai Central"  class="blueBorder" >
+                    <p>Chennai Central,Tamil Nadu</p>
+                </div>
+                <div class="col-sm-6">
+                    <img src="images/tada.jpg" alt="Image of Tada Falls"  class="blueBorder">
+                    <p>Tada Falls,Andhra Pradesh</p>
+                </div>
+            </div>
+        </div>
+                                 
+        
+    </section>
+    <footer>
+        <p>&copy; Shubham Travels</p>
+    </footer>
+
+    <!--
+    <script>
+            var addRow = document.getElementById('addRow');            //var is variant         // will show error...as button is not rendered yet // so add script before closing body tag 
+            
+            addRow.addEventListener("click",function(){     // Callback funtion - Whenever a function takes another function as input. Not immediately called, when user performs action
+                console.log("Click event fired");
+            });
+                                     
+    </script>  -->
+    <script>
+        $(function(){
+            $("#addRow").on('click',function(){
+                console.log('Add button pressed');
+            var newRow = "<tr><td>4</td><td>Kodai</td><td>6700</td></tr>"
+            $("table").append(newRow);
+            })
+        });             // either write jQuery()  Global function or simple write $()  
+    </script>
+</body>
+</html>
+
+<!-- Closure - Function returning another function -->

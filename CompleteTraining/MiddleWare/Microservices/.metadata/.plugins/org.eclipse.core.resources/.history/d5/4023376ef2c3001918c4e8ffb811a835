@@ -1,0 +1,20 @@
+package com.example.demo.repo;
+
+import java.util.List;
+
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.query.Param;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.data.rest.core.annotation.RestResource;
+
+import com.example.demo.entity.Players;
+
+@RepositoryRestResource
+public interface PlayerDetails extends PagingAndSortingRepository<Players, Long> {
+
+	
+	public List<Players> findByPlayerRating();
+	
+	public List<Players> findByPlayerClub(String club,Pageable page);
+}

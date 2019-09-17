@@ -1,0 +1,11 @@
+h1{
+    text-align: left
+}
+div{
+    padding-top:50px;
+    padding-bottom:50px;
+    padding-left : 20px;
+    background-color: blue;
+    color:white;
+    margin-bottom:20px
+}

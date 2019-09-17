@@ -1,0 +1,153 @@
+Selenium
+
+SDLC - Process of making a Requirement into an executable :
+
+Varioud Models :-
+Models -
+
+1. Waterfall
+I) Requirement Analysis :
+2 documents :
+a) Customer/Business Requirement Document --> Contains various requirements.
+b) Soft. Requirement Specification(SRS)  --> Function + Non-Function Requirement       (Developers + Testers must adhere to this doc.)
+    FR - What the operation is (operation that customer wants)
+    NFR - How the operation is performed
+
+II) Design : 2 documents prepared on the basis of SRS by dev.
+a) High Level Design --class diag. ...sequence diag.(which module after which)
+b) Low Level Design -- Logic of app.(for independent module) ---> Algorithms,FLow Charts,Use Chart , ER Diagram
+
+III) CODING
+Development (Inputs --> SRS+HLD+LLD)
+
+Unit testing is here -- TO develop we have LLD(Input = LLD)
+To check  if it is right various coverages: Right CLick>COverage As
+i) Statement Coverage   
+ii) CC 
+iii) DC 
+iv) PC 
+
+Integration Testing also in this phase : High Level Modules are linked to Low Level Modules
+
+
+
+IV) TEST 
+
+System Test: WHole application check of various platforms
+
+
+V) DEPLOYMENT - Deliver the working software to the customer
+User Acceptance Test : 
+Alpha Testing - TEsting done by customer done at a place where soft. is developed.
+Beta Testing -  TEsting done by customer done at individual places.
+
+
+
+
+VI) MAINTENANCE - Maintain a software. WARRANTY part.
+
+************************************************************************************************************************************************************************************************************************************
+
+TEST LEVELS :
+Unit : 
+Integration :
+System :
+User Acceptance Test :
+
+************************************************************************************************************************************************************************************************************************************
+
+Testing 
+1) WhiteBox -> Where full code is tested.
+2) Blackbox -> Functional + Non-Function checked and not the code.
+************************************************************************************************************************************************************************************************************************************
+SELENIUM 
+
+History -->
+
+Mercury QTP
+HP bought it --> HPQTP  (Functional Testing Tool)  - bASed on VB scripts
+Micro Focus bought it
+
+QTP :
+VB required
+Works on Windows 
+Test any WIndow or Web Based App
+
+
+SELENIUM :
+* Checks Funtional Requirement
+* Supports for JAVA ,Pearl , Python , C#
+* Supports Window, Linux, Mac
+* Only web based application
+
+************************************************************************************************************************************************************************************************************************************
+Selenium version 1 - diff. components
+version 2  -  SELENIUM Rc and Web Driver combined (with Java)
+version 3 - Only web Driver
+
+Web Driver - Automation Framework to test web application 
+
+
+Installation - 
+seleniumhq.org --> download--> standalone server
+create a folder and  paste it in it
+
+Which ever browser we need to test...scroll down and download its Driver ---> github...go to Releases --->  Download the jar file in the same folder
+Do for chrome and mozilla 
+
+Basic(Project Verizon)
+New Java Project --> Create class --> System.setProperty(driver,location of driver)
+Right Click on project --> Java Build--> External Jar -->(add selenium)
+WEbDriver c = new ChromeDriver();       c.get(link) 
+
+
+For copying xpath---> Inspect Element --> Right Click Copy>Copy Xpath
+IF className has space in between -
+1) use xpath("//input[@property='value with spae in between])  -- Relative xpath
+2) .cssSelector(".className(whereever there is space put a . in place of space))
+   .cssSelector("#idName(put . in place of space))
+
+
+Absolute xpath : https://www.softwarecertifications.org/
+Take a reference - put it in bas ie. //[@id='base id]/next tag name/Element
+eg/  //nav[@id='site-nav']/ul/li[4]/a
+To check if correct ---> open console --> press $x("//nav[@id='site-nav']/ul/li[4]/a");
+For dynamic tags...put *
+
+
+Run in IE,Safari browser
+Go to spice jet.com ---depart ---select 60A --- arrival select chennai
+
+
+
+
+package com.training;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class BasicElementSelection {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\Saurabh\\Desktop\\Verizon E-Learning\\Training\\Testing\\Selenium\\chromedriver.exe");
+		WebDriver myDriver = new ChromeDriver();
+		myDriver.get("https://book.spicejet.com/");
+		System.out.println("TITLE OF SITE : "+ myDriver.getTitle());
+		myDriver.manage().window().maximize();
+		myDriver.findElement(By.xpath("//input[@id='ControlGroupSearchView_AvailabilitySearchInputSearchVieworiginStation1_CTXT']")).sendKeys("Goa");
+		Thread.sleep(1000);
+		myDriver.findElement(By.id("ControlGroupSearchView_AvailabilitySearchInputSearchViewdestinationStation1_CTXT")).sendKeys("Chennai");
+		Thread.sleep(1000);
+//		myDriver.findElement(By.className("bookbtn")).click();
+		myDriver.findElement(By.id("custom_date_picker_id_1")).sendKeys(Keys.TAB);
+		myDriver.findElement(By.xpath("//input[@class='ui-state-default ui-state-highlight ui-state-active ui-state-hover']")).sendKeys(Keys.ENTER);
+		Thread.sleep(3000);
+		myDriver.close();
+		
+	}
+
+}

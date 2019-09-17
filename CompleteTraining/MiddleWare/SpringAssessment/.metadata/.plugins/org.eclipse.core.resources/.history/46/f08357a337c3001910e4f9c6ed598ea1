@@ -1,0 +1,16 @@
+package com.training.models;
+
+
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class UserDetails {
+
+	@NotBlank
+	private String userName;
+	@NotBlank
+	private String password;
+	private String email;
+}
+

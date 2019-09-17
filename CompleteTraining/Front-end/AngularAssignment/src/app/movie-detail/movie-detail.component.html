@@ -1,0 +1,40 @@
+<div>
+
+    <h3>Movie Name</h3>
+  
+    <p>
+      <strong>IMDB RATING:</strong> 4.5
+      <br>
+      <strong>OMDB RATING:</strong> 3
+    </p>
+    <p>
+      <strong>Rating:</strong> {{rating}}
+    </p>
+    <div>
+        <button className="fa fa-thumbs-o-up" (click)="increaseRating($event)" > Like </button> &nbsp;&nbsp;&nbsp;
+        <button className="fa fa-thumbs-o-down" (click)="decreaseRating($event)"> Dislike</button> 
+    </div>
+  
+    <hr>
+    
+    <!-- <input type="textarea" rows="10" cols="30" /> -->
+    <textarea rows=10 cols=200 placeholder="Write a Review" [hidden]="postReviewHidden" [(ngModel)]="review"></textarea>
+    <br>
+    <button  class="btn btn-success " mdbWavesEffect [hidden]="postReviewHidden"
+    type="submit" (click)=hidePostReview($event)>Post</button>
+  
+    
+    
+      <h3 [hidden]="!postReviewHidden"> Your review  : </h3>
+      <p [hidden]="!postReviewHidden">{{review}}</p>
+    
+    <pre>
+
+
+        
+    </pre>
+    <a class="btn btn-success" routerLink="/home">Back to Dashboard</a>
+  
+  </div>
+  
+  

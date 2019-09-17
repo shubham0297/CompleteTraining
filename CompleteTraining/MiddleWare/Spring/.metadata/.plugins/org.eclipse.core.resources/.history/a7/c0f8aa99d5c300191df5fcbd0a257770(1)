@@ -1,0 +1,59 @@
+package com.example.demo;
+
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.data.repository.CrudRepository;
+
+import com.example.demo.entity.Catalog;
+import com.example.demo.entity.Plan;
+import com.example.demo.service.CatalogService;
+
+@SpringBootApplication
+public class SpringOneToManyUnidirectionalApplication {
+
+	public static void main(String[] args) {
+		ConfigurableApplicationContext ctx = SpringApplication.run(SpringOneToManyUnidirectionalApplication.class, args);
+		CatalogService service =  ctx.getBean(CatalogService.class);
+		Catalog cat = ctx.getBean(Catalog.class);
+		Catalog savedInstance = service.addCatalog(cat);
+		System.out.println(savedInstance);
+		ctx.close();
+	}
+
+	@Bean
+	public Plan mobilePlan() {
+		return new Plan(101,"PREPAID","30 Days",120.01,LocalDate.of(2019, Month.SEPTEMBER, 21));
+	}
+	
+	@Bean
+	public Plan dthPlan() {
+		return new Plan(101,"DTHSOUTH","30 Days",120.01,LocalDate.of(2019, Month.AUGUST, 22));
+	}
+	
+	@bean
+	public Set<Plan> set(){
+		return new HashSet<>();
+	}
+
+
+	
+	@Bean
+	public Catalog catalog(){
+		Catalog cat = new Catalog();
+		cat.setCatalogId(999);
+		cat.setDescription("Special Plans for Ganesh Chhaturthi");
+		set().add(mobilePlan());
+		set().add(dthPlan());
+		cat.setPlans(set());
+		return cat;
+	}
+}

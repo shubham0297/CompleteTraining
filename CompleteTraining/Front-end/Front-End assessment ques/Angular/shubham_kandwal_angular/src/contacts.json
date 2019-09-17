@@ -1,0 +1,8 @@
+{
+    "contacts" : [
+    {"image":"../assets/shubham-kandwal.jpg","firstName":"Shubham","lastName":"Kandwal"},
+    {"image":"../assets/shubham-bhardwaj.jpg","firstName":"Shubham","lastName":"Bhardwaj"},
+    {"image":"../assets/swarup-mahakud.jpg","firstName":"Swarup","lastName":"Mahakud"},
+    {"image":"../assets/yugansh-singh.jpg","firstName":"Yugansh","lastName":"Singh"}
+    ]
+}

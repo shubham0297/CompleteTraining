@@ -1,0 +1,72 @@
+README includes instructions for building/running the project. :white_check_mark:
+
+README gives the description of the project :white_check_mark:
+
+README indicates which rubric points are addressed. :white_check_mark:
+
+
+
+Project compiles and runs without errors :white_check_mark:
+![1.png](https://udacity-reviews-uploads.s3.us-west-2.amazonaws.com/_attachments/263256/1567376469/1.png)
+
+
+
+Multiple control structures are used in different files in the project :white_check_mark:
+
+This specification is missing. The project should read some data from an external file and if possible write some data to an output file. The output part is optional but input part is must. :x: 
+
+Project accepts the user input :white_check_mark:
+
+
+
+Project follows the OOP structure and has various classes with class attributes and methods :white_check_mark:
+
+Access specifiers have been used for class data members :white_check_mark:
+
+Class members are initialized through member initialization lists. :white_check_mark:
+
+Class member functions have logical names :white_check_mark:
+
+Logical inheritance :white_check_mark:
+Override functions are specified. :white_check_mark:
+
+There is no overloaded function in any of the classes. The project requires atleast one function that has been overloaded with different signatures :x:
+Overloaded function (**UpdateWindowTitle**) present :white_check_mark:
+
+
+
+Ticked
+
+One function should be present to accept any type of parameters.No such function with template found. :x: 
+
+Functions use pass-by-reference in the project code. :white_check_mark:
+
+Destructor is used for  unmanaged dynamically allocated memory :white_check_mark:
+
+**RAII** pattern is followed :white_check_mark:
+
+Nice work using **shared_pointer**  :clap:
+
+TIcke
+tick
+tick
+
+
+
+Multithreading has been used :white_check_mark:
+Tick
+Mutex (`std:lock_guard`) has been used :white_check_mark:
+[**std::condition_variable**](https://en.cppreference.com/w/cpp/thread/condition_variable) is missing . :x:
+
+
+## Congratulations ! :star2: :sparkles:
+You have nailed the project in your first attempt and passed with flying colors. :rainbow:
+We look forward to receiving your future project submissions soon .
+
+Wishing you Best of Luck for the journey ahead :thumbsup:
+
+PS : Its good to see you included the screenshot for every milestone in your project.
+
+### Keep learning and stay Udacious
+:udacious:
+

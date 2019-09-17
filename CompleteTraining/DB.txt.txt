@@ -1,0 +1,184 @@
+21 Aug
+tinyurl.com/spring-data-nonsql-vatsan
+
+
+
+MONGO DB
+NO table....everything is document......No schema(NO SQL) .. No Joins
+
+Terms :
+
+Database  ---> 
+Collection --->  equivalent to table in RDBMS
+Document --> Each record in Collection
+Field --> like RDBMS column
+
+_id :  Provides on its own if not provided...serves as primary key for collection
+
+
+ ENVIRONMENT
+1. download mongoDB
+2. In C drive ...make a directory called data..inside it db needs to be created where all the things are stored.   ( if not then mongod command doesn't work)   
+3. Set path in environment variable
+4. While executing mongo, a) Run the mongoDB server   (mongod)     
+b) Create a shell to engage with Mongo   (mongo)            -- THough we will use Compass UI
+
+Open compass ---> Connect ----> Create database(training)..collection(Cars) ---> Insert document
+
+
+COMMANDS
+show dbs 
+use databaseName
+show collections
+db.<collection>.find()
+
+
+
+
+Insert
+db.<collection>.insert()
+
+Select
+db.collection.find() --> Select *
+db.collection.findOne() --> Select *
+
+Update
+db.collection.update
+
+
+MongoSpringBoot
+
+@Table becomes
+@Document(collection="tableName")
+
+@Id
+private long courseId;                   // if no unique proerty...object id is made as id.
+
+********************************************************************************************************************************************************************************************************
+
+Project -- >SpringMongo project
+New spring starter project ---> starters(web starter,rest repo, Spring data MongoDb,lombok)
+
+Create AppConfig. ---> use MongoClient from (com.mongodb.MongoClient)    Create a MongoClient and a MongoTemplate
+public MongoClient client() {
+		return new MongoClient("localhost");
+	}
+public MongoTemplate template() {
+		return new MongoTemplate(client(),"training");					// Paramenters ...mongoClient and Database name
+	}	
+
+Create a repository (Repository<T>)
+
+********************************************************************************************************************************************************************************************************
+22 Aug.
+CASSANDRA - No SQL
+
+RDMS follow - ACID properties
+NO SQL follows CAP - COnsistency Availability Partioning
+No Sqls don't follow all the 3...only 2 of the CAP property
+Cassandra is AP - Availability Partitioning
+
+
+Terminologies :
+Node -> Place where data is stored.
+Data center - It is a collection of related nodes.
+Cluster -- Cluster is a component which contains aone or more data centers.
+Keyspace(Database) - Container of tables
+
+
+CQL - 
+No aggregation queries min.,max
+no group by 
+no Joins
+no OR queries.
+Can't change DATABASE (KEYSPACE) name
+
+
+
+RUNNING
+cassandra ---> for server
+
+
+Keyspace(database) creation 
+Create keyspace training with replication={'class':'Simple Strategy','replication_dactor':3};
+
+desc training;
+USE training;
+
+
+Creating Table
+create table ( catalog_id int,catalog_name text,  Primary Key(catalog_id));
+
+
+Insert same -
+Insert into catalog(catalog_id,catalog_name) values(102,"ABCD") using ttl 100;              ---> THis data will be delted after 100 Select
+
+Update -
+Will replace if key already present
+
+
+
+Keys :
+Primary --> Simple,compund or composite primary key
+Partition Key -> resp. for data distribution across your nodes.
+Clustering key -> resp. for data sorting withing the partition.
+
+So, if primary key is simple (one column)  --------> It becomes partition key..ie. data is partitioned acc. to this key
+If primary key is composite(say two columns)  ------> First is partition and second becomes sorting
+
+
+Download cassandra...set path...download python ...set python...set JAVA_HOME
+cassandra - start server
+csql - shell
+
+1.  create keyspace phonestore with replication={'class':'SimpleStrategy','replication_factor':3};
+2. use phonestore;
+3. desc phonestore;
+4. create table catalog(id int,catalog_name text,validity text,amount double,PRIMARY KEY(id));
+5.
+ Insert into catalog(id,catalog_name,validity,amount) values(101,'mobile-pre','149',900.12); 
+ Insert into catalog(id,catalog_name,validity,amount) values(102,'mobile-post','month',1000.12);
+ Insert into catalog(id,catalog_name,validity,amount) values(103,'dth','month',570.12);
+
+6. Select * from catalog where catalog_name='dth';   // throws error as it is not in any id so it becomes difficult..and need to ALLOW FILTERING
+to anyways work --->    Select * from catalog where catalog_name='dth' allow filtering ; 
+
+7. update catalog set validity='two months' where id=103;
+
+
+WITH Spring (Project : cassandraUsingRepo)
+New Spring Starter project>
+
+Create repo.class (CatalogRepository extending CassandraReposirtory)
+********************************************************************************************************************************************************************************************************
+
+Spring Testing
+
+
+********************************************************************************************************************************************************************************************************
+
+23 August
+tinyurl.com/maven-vatsan
+
+MAVEN - Project Management and comprehension tool. Accumulator of knowledge
+
+DOwnload Maven (.tar.gz) --
+Set M2_HOME -- where lib and bin are present
+bin
+
+Create a directory ---> Inside that...create another directory(quickStart) ---> Inside that create a text file pom.xml ----> Edit pom.xml
+Create directory src>main>java inside quickStart
+run mvn package in pom.xml directory
+Extract jar file quickStart1.0.0
+cd target
+run ---> java -cp quickStart-1.0.0.jar com.training.Application
+
+
+
+New Way to automatically create everything 
+cd to root folder(maven)  ---> mvn archetype:generate ---> enter -->8--> groupid-, artifact id = librarymanagement system.. version blank..package blank
+Create a new class Greeting.java  in package with a function ....and call the function from App.java(present by default)
+cd to librarymanagement --> mvn package
+Whenever we do mvn package---> first time it downloads all the files from global repository ...next time onlwards from local repository (Users>.m2>repository)
+cd target
+java -cp quickStart-1.0.0.jar com.training.Application

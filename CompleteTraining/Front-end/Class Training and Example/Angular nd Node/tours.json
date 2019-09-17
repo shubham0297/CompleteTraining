@@ -1,0 +1,8 @@
+{
+   "tours" : [
+    {"id":1,"tourName":"pondi","price":4500},
+    {"id":2,"tourName":"mahabalipuram","price":5600},
+    {"id":3,"tourName":"chennai-central","price":6500},
+    {"id":4,"tourName":"tada","price":6700}
+   ]
+}

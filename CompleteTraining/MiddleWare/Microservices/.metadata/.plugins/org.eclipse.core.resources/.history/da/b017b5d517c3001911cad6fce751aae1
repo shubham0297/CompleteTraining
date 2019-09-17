@@ -1,0 +1,15 @@
+package com.example.demo.model;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="vdsi_payment")					// mapping to table in sql
+public class Payment {
+	
+	@Id
+	private long id;
+	private String customerName;
+	private double txnAmount;
+
+}

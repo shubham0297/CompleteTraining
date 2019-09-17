@@ -1,0 +1,209 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+    <h1>
+      Welcome to SK's{{ title }}!
+    </h1>
+   
+  <h2>Here are some movies to rate: </h2>
+  <ul  class="d-flex bd-highlight d-flex flex-wrap">
+    <li class="list-inline-item">
+      <img src="../assets/snowden.jpg" alt="Snowden" class="img-fluid img-thumbnail" (click)="movieReview($event)" >
+      <h4>Snowden</h4>
+      <button  class="btn btn-success btn-block" mdbWavesEffect
+      type="submit" (click)="getReview(1)">Get Review</button>
+      <p *ngFor="let eachRow of review_">
+        {{eachRow.name}}<br/>
+        {{eachRow.imdb}}<br/>
+        {{eachRow.omdb}}<br/>
+        <!-- {{eachRow.id}}<br/> -->
+        {{eachRow.review}}<br/>
+      </p> 
+    </li>
+    <li class="list-inline-item">
+      <img src="../assets/social-network.jpg" alt="Social-Network"  class="img-fluid img-thumbnail" (click)="movieReview($event)">
+      <h4>Social Network</h4>
+      <button  class="btn btn-success btn-block" mdbWavesEffect
+      type="submit" (click)="getReview(2)">Get Review</button>
+      <p *ngFor="let eachRow of review_">
+        {{eachRow.name}}<br/>
+        {{eachRow.imdb}}<br/>
+        {{eachRow.omdb}}<br/>
+        <!-- {{eachRow.id}}<br/> -->
+        {{eachRow.review}}<br/>
+      </p> 
+    </li>
+    <li class="list-inline-item">
+      <img src="../assets/imitation-game.jpg" alt="Imitation Game" class="img-fluid img-thumbnail" (click)="movieReview($event)">
+      <h4>Imitation Game</h4>
+      <button  class="btn btn-success btn-block" mdbWavesEffect
+      type="submit" (click)="getReview(3)">Get Review</button>
+      <p *ngFor="let eachRow of review_">
+        {{eachRow.name}}<br/>
+        {{eachRow.imdb}}<br/>
+        {{eachRow.omdb}}<br/>
+        <!-- {{eachRow.id}}<br/> -->
+        {{eachRow.review}}<br/>
+      </p> 
+    </li>
+    <li class="list-inline-item">
+      <img src="../assets/beautiful-mind.jpg" alt="A Beautiful Mind" class="img-fluid img-thumbnail" (click)="movieReview($event)">
+      <h4>A Beautiful Mind</h4>
+      <button  class="btn btn-success btn-block" mdbWavesEffect
+      type="submit" (click)="getReview(4)">Get Review</button>
+      <p *ngFor="let eachRow of review_">
+        {{eachRow.name}}<br/>
+        {{eachRow.imdb}}<br/>
+        {{eachRow.omdb}}<br/>
+        <!-- {{eachRow.id}}<br/> -->
+        {{eachRow.review}}<br/>
+      </p> 
+    </li>
+    <li class="list-inline-item">
+      <img src="../assets/ddlj.jpg" alt="DDLJ" class="img-fluid img-thumbnail" (click)="movieReview($event)">
+      <h4>DDLJ</h4>
+      <button  class="btn btn-success btn-block" mdbWavesEffect
+      type="submit" (click)="getReview(5)">Get Review</button>
+      <p *ngFor="let eachRow of review_">
+        {{eachRow.name}}<br/>
+        {{eachRow.imdb}}<br/>
+        {{eachRow.omdb}}<br/>
+        <!-- {{eachRow.id}}<br/> -->
+        {{eachRow.review}}<br/>
+      </p> 
+    </li>
+    <li class="list-inline-item">
+      <img src="../assets/robot.jpg" alt="Robot" class="img-fluid img-thumbnail" (click)="movieReview($event)">
+      <h4>Robot</h4>
+      <button  class="btn btn-success btn-block" mdbWavesEffect
+      type="submit" (click)="getReview()">Get Review</button>
+      <p *ngFor="let eachRow of review_">
+        {{eachRow.name}}<br/>
+        {{eachRow.imdb}}<br/>
+        {{eachRow.omdb}}<br/>
+        <!-- {{eachRow.id}}<br/> -->
+        {{eachRow.review}}<br/>
+      </p> 
+    </li>
+    <li class="list-inline-item">
+      <img src="../assets/imitation-game.jpg" alt="Imitation Game" class="img-fluid img-thumbnail" (click)="movieReview($event)">
+      <h4>Imitation Game</h4>
+      <button  class="btn btn-success btn-block" mdbWavesEffect
+      type="submit" (click)="getReview()">Get Review</button>
+      <p *ngFor="let eachRow of review_">
+        {{eachRow.name}}<br/>
+        {{eachRow.imdb}}<br/>
+        {{eachRow.omdb}}<br/>
+        <!-- {{eachRow.id}}<br/> -->
+        {{eachRow.review}}<br/>
+      </p> 
+    </li>
+    <li class="list-inline-item">
+      <img src="../assets/imitation-game.jpg" alt="Imitation Game" class="img-fluid img-thumbnail" (click)="movieReview($event)" >
+      <h4>Imitation Game</h4>
+      <button  class="btn btn-success btn-block" mdbWavesEffect
+      type="submit" (click)="getReview()">Get Review</button>
+      <p *ngFor="let eachRow of review_">
+        {{eachRow.name}}<br/>
+        {{eachRow.imdb}}<br/>
+        {{eachRow.omdb}}<br/>
+        <!-- {{eachRow.id}}<br/> -->
+        {{eachRow.review}}<br/>
+      </p> 
+    </li>
+    <li class="list-inline-item">
+      <img src="../assets/imitation-game.jpg" alt="Imitation Game" class="img-fluid img-thumbnail"(click)="movieReview($event)">
+      <h4>Imitation Game</h4>
+      <button  class="btn btn-success btn-block" mdbWavesEffect
+      type="submit" (click)="getReview()">Get Review</button>
+      <p *ngFor="let eachRow of review_">
+        {{eachRow.name}}<br/>
+        {{eachRow.imdb}}<br/>
+        {{eachRow.omdb}}<br/>
+        <!-- {{eachRow.id}}<br/> -->
+        {{eachRow.review}}<br/>
+      </p> 
+    </li>
+    <li class="list-inline-item">
+      <img src="../assets/imitation-game.jpg" alt="Imitation Game" class="img-fluid img-thumbnail"(click)="movieReview($event)">
+      <h4>Imitation Game</h4>
+      <button  class="btn btn-success btn-block" mdbWavesEffect
+      type="submit" (click)="getReview()">Get Review</button>
+      <p *ngFor="let eachRow of review_">
+        {{eachRow.name}}<br/>
+        {{eachRow.imdb}}<br/>
+        {{eachRow.omdb}}<br/>
+        <!-- {{eachRow.id}}<br/> -->
+        {{eachRow.review}}<br/>
+      </p> 
+    </li>
+    <li class="list-inline-item">
+      <img src="../assets/imitation-game.jpg" alt="Imitation Game" class="img-fluid img-thumbnail" (click)="movieReview($event)">
+      <h4>Imitation Game</h4>
+      <button  class="btn btn-success btn-block" mdbWavesEffect
+      type="submit" (click)="getReview()">Get Review</button>
+      <p *ngFor="let eachRow of review_">
+        {{eachRow.name}}<br/>
+        {{eachRow.imdb}}<br/>
+        {{eachRow.omdb}}<br/>
+        <!-- {{eachRow.id}}<br/> -->
+        {{eachRow.review}}<br/>
+      </p> 
+    </li>
+    <li class="list-inline-item">
+      <img src="../assets/imitation-game.jpg" alt="Imitation Game" class="img-fluid img-thumbnail"(click)="movieReview($event)">
+      <h4>Imitation Game</h4>
+      <button  class="btn btn-success btn-block" mdbWavesEffect
+      type="submit" (click)="getReview()">Get Review</button>
+      <p *ngFor="let eachRow of review_">
+        {{eachRow.name}}<br/>
+        {{eachRow.imdb}}<br/>
+        {{eachRow.omdb}}<br/>
+        <!-- {{eachRow.id}}<br/> -->
+        {{eachRow.review}}<br/>
+      </p> 
+    </li>
+    <li class="list-inline-item">
+      <img src="../assets/imitation-game.jpg" alt="Imitation Game" class="img-fluid img-thumbnail"(click)="movieReview($event)">
+      <h4>Imitation Game</h4>
+      <button  class="btn btn-success btn-block" mdbWavesEffect
+      type="submit" (click)="getReview(1)">Get Review</button>
+      <p *ngFor="let eachRow of review_">
+        {{eachRow.name}}<br/>
+        {{eachRow.imdb}}<br/>
+        {{eachRow.omdb}}<br/>
+        <!-- {{eachRow.id}}<br/> -->
+        {{eachRow.review}}<br/>
+      </p> 
+    </li>
+    <li class="list-inline-item">
+      <img src="../assets/imitation-game.jpg" alt="Imitation Game" class="img-fluid img-thumbnail" (click)="movieReview($event)">
+      <h4>Imitation Game</h4>
+      <button  class="btn btn-success btn-block" mdbWavesEffect
+      type="submit" (click)="getReview(2)">Get Review</button>
+      <p *ngFor="let eachRow of review_">
+        {{eachRow.name}}<br/>
+        {{eachRow.imdb}}<br/>
+        {{eachRow.omdb}}<br/>
+        <!-- {{eachRow.id}}<br/> -->
+        {{eachRow.review}}<br/>
+      </p> 
+    </li>
+    <li class="list-inline-item">
+      <img src="../assets/imitation-game.jpg" alt="Imitation Game" class="img-fluid img-thumbnail" (click)="movieReview($event)" >
+      <h4>Imitation Game</h4>
+      <button  class="btn btn-success btn-block" mdbWavesEffect
+      type="submit" (click)="getReview(3)">Get Review</button>
+      <p *ngFor="let eachRow of review_">
+        {{eachRow.name}}<br/>
+        {{eachRow.imdb}}<br/>
+        {{eachRow.omdb}}<br/>
+        <!-- {{eachRow.id}}<br/> -->
+        {{eachRow.review}}<br/>
+      </p> 
+    </li>
+    
+  </ul>
+  
+  <router-outlet></router-outlet>
+  
+  

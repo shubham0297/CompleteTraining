@@ -1,0 +1,42 @@
+<!DOCTYPE html>                 <!-- use html:5 and Ctrl+space-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LOGIN PAGE</title>
+    <link href="images/travel-logo.png.jpg" rel='icon' type='img/png'>          <!-- To display an image in the title of the browser. So when we bookmark...this image will be present on bookmark tab-->
+    <link rel="stylesheet" href="css/style.css">                <!-- Used - link:css  -->
+</head>
+
+<body>
+    <header>
+        <h1 id="majHeading">Southern Travels</h1>
+        <img src="images/southern-India.jpg" alt="Logo" class="logo blueBorder" />
+        <nav>
+            <ul>
+                <li><a href="">Home</a></li>                        <!-- use  (li>a[href])*4    where > will denote child element  + denote sibling ,[]=attribute  -->
+                <li><a href="catalog.html">Catalog</a></li>
+                <li><a href="">Payment</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section>                                                                         <!-- POST - data will go as form data ..Network>Header , if we use GET- it will be the part of REQUEST/QUERY--> 
+        <form action="catalog.html" method="POST">                                    <!--  Used -- form>(label+input)*2 + input[type=submit] -->
+            <label for="userName">User Name</label>                                   <!-- For attribute is for people with vision prob. --it is kept same as name attribute of input value for consistency-->
+            <input type="text" name="userName" id="userName" required  placeholder="Registered Mobile Number"> 
+            <label for="passWord">PassWord</label> 
+            <input type="text" name="passWord" id = "passWord" required> <br/>                    <!-- name att. will be used in Server Side(like Java class),id attr. used in Client Side(like in DOM) -->
+            <input type="submit" value="Login"> 
+        </form>
+    </section>
+
+    <footer>
+            <center>&copy; Shubham Travels</center>
+    </footer>
+</body>
+
+
+</html>

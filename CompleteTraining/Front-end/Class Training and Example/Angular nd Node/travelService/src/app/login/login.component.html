@@ -1,0 +1,9 @@
+<p>login works!</p>
+<form #f="ngForm" (ngSubmit)="validate()">                        <!-- form>((label+input)*2+input)-->
+    <label for=""> User name</label>
+    <input type="text" name="userName" [(ngModel)]='user.userName'><br/>
+    <label for="">Pass Word</label>
+    <input type="passWord" name="passWord" [(ngModel)]='user.passWord'><br/>
+    <input type="submit" value="Login">
+</form>
+{{status}}

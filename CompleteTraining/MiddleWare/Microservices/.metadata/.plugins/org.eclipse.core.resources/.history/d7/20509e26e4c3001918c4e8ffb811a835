@@ -1,0 +1,13 @@
+package com.example.demo.repo;
+
+import java.util.List;
+
+import org.springframework.data.repository.PagingAndSortingRepository;
+
+import com.example.demo.entity.Players;
+
+public interface PlayerDetails extends PagingAndSortingRepository<Players, Long> {
+
+	public List<Players> findByPlayerRating();
+	public List<Players> findByPlayerClub(String club);
+}

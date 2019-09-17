@@ -1,0 +1,9 @@
+{
+    "donors":[
+        {"id":101,"donorName":"Pranjal","phoneNumber":27948670,"donationCount":54,"bloodGroup":"opos","lastDonated":"2019-04-12"},
+        {"id":102,"donorName":"Shubham","phoneNumber":27948670,"donationCount":54,"bloodGroup":"bpos","lastDonated":"2019-05-15"},
+        {"id":103,"donorName":"Karan","phoneNumber":27948670,"donationCount":54,"bloodGroup":"aneg","lastDonated":"2019-06-21"}
+    ],
+    "hospitals": [],
+    "sponsors":[]
+}

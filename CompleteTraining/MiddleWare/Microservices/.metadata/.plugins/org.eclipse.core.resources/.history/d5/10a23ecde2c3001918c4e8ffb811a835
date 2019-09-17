@@ -1,0 +1,26 @@
+package com.example.demo.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.entity.Players;
+import com.example.demo.model.Payment;
+import com.example.demo.repo.PlayerDetails;
+import com.example.demo.repos.PaymentRepository;
+
+@Service
+public class PlayerService {
+	
+	@Autowired
+	private PagingAndSortingRepository<Players, Long> repo;
+	
+	
+	public List<Players> findByPlayerClub(String club) {
+		PlayerDetails paymentRepo = (PlayerDetails)repo;
+		return paymentRepo.findByCustomerName(name);
+	}
+}

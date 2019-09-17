@@ -1,0 +1,7 @@
+<!--<p>navigation works!</p>-->
+
+<ul>
+    <li *ngFor = "let eachLink of linkList">
+        <!-- <a [href]={{eachLink.link}}>{{eachLink.text}}</a></li> -->
+        <a [routerLink]="[eachLink.link]">{{eachLink.text}}</a></li>
+</ul>

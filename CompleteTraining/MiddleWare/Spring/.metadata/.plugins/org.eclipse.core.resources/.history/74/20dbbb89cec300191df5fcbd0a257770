@@ -1,0 +1,17 @@
+package com.example.demo.entity;
+
+import java.time.LocalDate;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="vayutel_plans")
+public class Plan {
+
+	@Id
+	private long planId;
+	private String validity;
+	private double amount;
+	private LocalDate effectiveDate;
+}

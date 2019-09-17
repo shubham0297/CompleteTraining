@@ -1,0 +1,52 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.18.0 ()
+  creationTimestamp: null
+  labels:
+    io.kompose.service: backend-user
+  name: backend-user
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: backend-user
+    spec:
+      containers:
+      - env:
+        - name: AWS_BUCKET
+          value: elasticbeanstalk-us-west-2-416216737535
+        - name: AWS_PROFILE
+          value: default
+        - name: AWS_REGION
+          value: us-east-2
+        - name: JWT_SECRET
+          value: amal
+        - name: POSTGRESS_DB
+          value: POSTGRESSUSERNAME
+        - name: POSTGRESS_HOST
+          value: POSTGRESSUSERNAME.c5cdxrkllyu5.eu-west-3.rds.amazonaws.com
+        - name: POSTGRESS_PASSWORD
+          value: POSTGRESSPASSWORD
+        - name: POSTGRESS_USERNAME
+          value: POSTGRESSUSERNAME
+        - name: URL
+          value: http://localhost:8100
+        image: amalkh/udacity-restapi-user
+        name: backend-user
+        resources: {}
+        volumeMounts:
+        - mountPath: /root/.aws
+          name: backend-user-claim0
+      restartPolicy: Always
+      volumes:
+      - name: backend-user-claim0
+        persistentVolumeClaim:
+          claimName: backend-user-claim0
+status: {}

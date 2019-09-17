@@ -1,0 +1,13 @@
+package com.example.demo.test;
+
+import org.junit.runner.RunWith;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.example.demo.config.AppConfig;
+
+@RunWith(SpringRunner.class)
+@ConfigurationProperties(AppConfig.class)
+public class TestLoanEligibility {
+
+}

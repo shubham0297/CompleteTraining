@@ -1,0 +1,17 @@
+<p>show-tours works!</p>
+<!-- {{tourList | json }}                 displays the result in json format -->
+
+
+<table class="table table-stripped">
+    <tr>
+        <th>Id</th>
+        <th>Tour Name</th>
+        <th>Price</th>
+    </tr>
+    <tr *ngFor="let eachRow of tourList">
+        <td>{{eachRow.id}}</td>
+        <td>{{eachRow.tourName}}</td>
+        <td>{{eachRow.price}}</td>
+
+    </tr>
+</table>

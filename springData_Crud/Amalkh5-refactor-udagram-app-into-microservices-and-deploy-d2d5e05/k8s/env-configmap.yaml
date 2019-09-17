@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+data:
+  AWS_BUCKET: elasticbeanstalk-us-west-2-416216737535
+  AWS_PROFILE: default
+  AWS_REGION: us-east-2
+  JWT_SECRET: amal
+  POSTGRESS_USERNAME: POSTGRESSUSERNAME
+  POSTGRESS_PASSWORD: POSTGRESSPASSWORD
+  POSTGRESS_DB: POSTGRESSUSERNAME
+  POSTGRESS: POSTGRESSUSERNAME
+  POSTGRESS_HOST: POSTGRESSUSERNAME.c3fxupypzt7o.us-west-2.rds.amazonaws.com
+  URL: http://localhost:8100
+metadata:
+  name: env-config

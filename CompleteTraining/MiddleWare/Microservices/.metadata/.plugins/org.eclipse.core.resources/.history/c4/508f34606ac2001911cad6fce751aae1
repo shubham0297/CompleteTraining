@@ -1,0 +1,11 @@
+package com.example.demo.model;
+
+public class TravelRequest {
+
+	private long requestId;
+	private long employeeId;
+	private String employeeName;
+	private String employeeBand;
+	private double requestAmount;
+	private String details;
+}

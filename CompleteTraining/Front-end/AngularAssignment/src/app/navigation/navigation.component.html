@@ -1,0 +1,5 @@
+<ul>
+    <li *ngFor="let eachLink of linkList" class="list-inline-item">
+        <a [routerLink]="[eachLink.link]">
+            {{eachLink.text}}</a></li>
+</ul>

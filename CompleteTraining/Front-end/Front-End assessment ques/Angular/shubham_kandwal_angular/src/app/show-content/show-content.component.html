@@ -1,0 +1,12 @@
+<!-- <p>show-content works!</p> -->
+
+    <table *ngFor="let eachRow of contactList" class="table table-striped">
+        <tr>
+                <img src="{{eachRow.image}}" class="rounded-circle" alt="Picture of {{eachRow.firstName}} {{eachRow.lastName}}"/>
+                &nbsp;<b>{{eachRow.firstName}} {{eachRow.lastName}} </b>
+        </tr>
+
+    </table>
+    <!-- <p *ngFor="let eachRow of contactList" class=" row stripped">
+        <!-- <span>{{eachRow.image}}</span> -->
+    <!-- </p> -->

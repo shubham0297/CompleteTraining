@@ -1,0 +1,11 @@
+<form #frm="ngForm" (ngSubmit)="validate()" class="form">
+    <p class="h4 mb-4">Login</p>
+    <input type="text" name='userName' [(ngModel)]='user.userName' class="form-control" placeholder="E-mail" required><br>
+    <input type="passWord" name='passWord' [(ngModel)]='user.passWord' class="form-control" placeholder="Password" required><br>
+    <button  class="btn btn-success btn-block" mdbWavesEffect
+    type="submit" >Sign in</button>
+</form>
+<!-- <LoggedInComponent></LoggedInComponent> -->
+<!-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+</div> -->

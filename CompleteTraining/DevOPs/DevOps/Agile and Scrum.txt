@@ -1,0 +1,54 @@
+tinyurl.com/y6yjpzma
+
+Agile - Not a development process but a way to measure the process. REady to create and respond to change. Focus on people(developer) rather than process
+
+Sprint - A particular time frame in which a tsak is to be completed. 1-4 weeks
+Iteration - Soft. developed during a unit of time. (Modularity+Time Bound)
+Sprint time - given by developer.  
+
+
+Existing Agile Methodoligies.
+1. Extreme Programming
+2. Agile United process
+3. Scrum :- Almost Same as AUP but flexible.
+Scrum : Agile s/w dev. method for proj. management
+Priortize the work. (by pdt. owner)
+Completion of backlog items(pending..or out of sprint)
+Progess explained  -- using ticketing tools
+
+
+Scrum : Definite proj. management emphasis.
+Scrum Master : Intermediator b/w product owner and developers.Manages scrum project.
+Sprint - 1 to 4 weeks dev. life cycle. Also have pre-sprint and post-sprint
+Daily Scrum - Daily(less than 30 mins.) scrum meeting to monitor status and comm. problems
+
+Project Planning  - based on Product Backlog which contains functions and tech. enhancements . 2 meeting - one to decide features of next sprint other to plan out work.
+
+Daily Scrum ==> Only SCrum Master ..runs or solves problems
+Sprint Meeting --> Scrum master + Prd. owner
+
+Core roles ==== roles committed to project. Decided by project owner or stakeholder. (not related eg. like dev. inside the office only)
+
+
+Artifacts / Product Backlog - list where all the requirements are mentioned for a project. In the form of user stories.
+
+Burn Down Chart - shows the remaining task/user stories. Updated everyday
+
+************************************************************************************************************************************************************************************************************************
+29-8-2019
+DEVOPS - ADvanced agile. Adding tool to every step of agile.
+COmbination of Development And Operation Cycle --
+
+plan                                            deploy
+code    <----------> Integration <---------->   operate
+build                                           monitor
+test
+
+
+
+
+Git Bash :
+
+git init
+git status - current status of repo
+git logs

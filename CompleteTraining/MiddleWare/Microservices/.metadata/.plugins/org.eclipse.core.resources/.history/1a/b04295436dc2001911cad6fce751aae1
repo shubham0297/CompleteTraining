@@ -1,0 +1,19 @@
+package com.example.demo.consumer;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.stream.annotation.EnableBinding;
+import org.springframework.cloud.stream.annotation.StreamListener;
+import org.springframework.cloud.stream.messaging.Sink;
+
+@EnableBinding(Sink.class)
+public class Approver {
+
+	
+	@Autowired
+	private Sink sink;
+	
+	@StreamListener(target = Sink.class)
+	public String receiveRequest() {
+		return 
+	}
+}

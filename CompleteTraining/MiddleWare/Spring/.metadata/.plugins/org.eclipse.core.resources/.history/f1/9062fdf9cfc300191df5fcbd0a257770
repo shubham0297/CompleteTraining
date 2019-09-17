@@ -1,0 +1,24 @@
+package com.example.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.example.demo.entity.Plan;
+
+@SpringBootApplication
+public class SpringOneToManyUnidirectionalApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringOneToManyUnidirectionalApplication.class, args);
+	}
+
+	@Bean
+	public Plan mobilePlan() {
+		return new Plan();
+	}
+	
+	@Bean
+	public Plan dthPlan() {
+		return new Plan();
+	}
+}

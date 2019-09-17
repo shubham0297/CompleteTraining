@@ -1,0 +1,336 @@
+.  How to generate comp. :-    ng g c Component name
+creates view(app.component.html) , controller(app.component.ts) and css file   inside app folder. It will also update the app.module.ts inside declaration array. but not in bootstrap . Then it is 
+upto us which component we have to use as the startup/bootstrap/root.
+Whatever is given in bootstrap array ---> we will add that in inde.html.  Like bootstrap:[AppComponent,HeaderComponent] , then in index.html   <app-root></app-root> and <app-Header> </app-Header>
+
+
+Angular used to create single page application and has MVC 
+
+Angular - Component(building block of angular) based arch. Like we must have main class in java there must be atleast one componenet in angular application.
+Two types of component :
+Container component : If if have more than one component. Eg. Login comp. has form, logout comp.
+Presentational comp. : If it doesn;t have any comp. inside.
+
+
+
+template(view) ---> Internal template - if 2-3 lines in html file use ...  template only. Eg. template : `<h1> Hello {{mes}}`
+                    External Template - if more than 2-3 lines  ...    use templateURL. Eg.  templateURL :./AppComponent.html
+
+
+
+Passing data from parent to child component   ---->  @Input()
+Eg.  in child container write @Input var_name : string . Now in parent class we use    <Child-Selector[child-propert] = parent property></child-selector>  . Eg.  <reviewFood[reviewdBy]='reviewer'></reviewerFood>
+This is called Property binding. In case of binding type other than string ..use []. in short interpolation supports only string ...but [] can support string as well as other than string
+
+Passing data from child to parent component   ---->  @Output()
+Done through an event. Cutsom event (not built-in event). TYpe of custom event will be EventEmitter. Eg.     @Output res:EventEmitter<String> = new EventEmitter<String>
+now ... add(){
+    this.result.emit(this.childName + 'Added');
+}
+ 
+
+Event Binding : denoted by ().
+eg. <img [src]="imageUrl" (click)='myFunction()'
+
+
+
+
+package.json contains dependencies
+package-lock.json contains all the transitive dependencies
+
+tsconfig.json - responsible for converting .ts to .js
+target in tsconfig.json tells which version of javascript to convert 2015 means java 5 2016 means to java 6
+
+
+import is not valid in javascript but is allowed in typescript
+
+Binding - from component(app.component.ts) to template(app.component.html) . DOne using {{}} which is called interpolation.
+Component Class with property title which is binded to template using interpolation.
+
+
+Component(app.component.ts) and Module(app.module.ts) both are classes. Distinguished using decorator --->
+Component class has @Component decorator with 3 properties whereas Module class has @NgModule with 4 properties.
+
+If we have component defined in bootstrap(responsible for startup) array in NgModule..it gets added in index.html.
+If don't have any component/module in bootstrap array in NgModule we will add it in app.component.html
+
+Flow --->     main.js -> has AppModule --> AppComponent
+
+
+src>assest   -> contains all the static files, like images etc.
+Even if we have n .ts file components, at run time only one .js file will be create that will contain converted js of all the n files.
+
+
+*ngFor - used to iterate as in html we can't do same. Eg. check navigation.component.html
+
+
+
+AJAX - Asnchronous
+When using AJAX we need to include http module in app.module.ts just like form module
+
+Service - Goes and fetch the data and gives to component. (ng g s ServiceName). Creates singlton service(only one instance)
+Service is also a class. Distinguished by decorator. contains @injectable
+If service is to be available to every component --- then register it at root level
+else register it at component level-- in this case only that particular component will be able to access that service
+
+Component - renders the data as it has got the template
+
+Dependency injection ---> service is injected into component
+
+
+Service injected into component 
+Module(httpmodule etc) injected into service
+
+Promise and Observable both used for AJAX calls in angular.
+observable approach follows LazyFetching approach( fetched when required). Only when there is subscriber, then only it fetches. So whenever we see .subscribe() we know its LazyFetching
+Promise approach follows EagerFetcher (fetch data in advance). Even if there are no subscriber it fetches data
+
+MVC-
+Model(Data) --> Fetched using services ---> using REST api
+
+
+Q.    Created a service(toursService) --> injected HTTPClient in its constructor --> used get method of HTTPClient which returns observable<CustomType[]> . Then create that type using\
+      interface (ToursInterface).   Once this service is complete now we will want a component to display the data fetched
+      Create componenet(showTour) ---> inject service(tours-service) into constructor(in .ts file of showTour) ---> and then subscribe  
+      Attach the component to root(ie. app-component)
+      Lastly display in the show-tour-component.html.
+     To display in table...we need bootstrap...add in package.json...npm i....then open styles.css @import bootstrap file
+
+
+ROuter-outlet (in app.component.html ) ----> acts like a projector screen ---> where we can display different component (one at a time) rather thatn displaying all the components
+all at one.  We can have --> menu bar on the top...as we click link 1 ..components 1 gets displayed....click link2 ..components 2 gets displayed. In this way we acheive the single
+Page agenda of angular
+***************************************************************************************************************************************************************************************************
+
+Login Forms  : 
+Create form in component(template/view) file. Eg. login.component.html
+Create interface with input values as properties (credential.ts)
+Add the property(with interface type) in login.component.ts file. ie. adding model .
+write method to validate in login.component.ts
+But no link b/w Model(.ts) & COmponent(.html)   -----> bind in html in form using [(ngModel)] 
+Also add event in form to bind to validate function --> ie.  (ngSUbmit)="validate()"
+
+
+Command to build the project (ie. deploying the project once it has been developed)   - ng build --prod
+***************************************************************************************************************************************************************************************************
+ReactJS : UI part / controls. Doesn't provide mechanism to store the state. ie. State Management.
+Redux --> to store states of object in a single page.So that react doesn't have to look at multiple place to know the state of the object.
+
+
+React Supports both typescript/javascript
+React is only the View part of MVC(unlike angular which had all the three)
+Actual DOM isn't created, Visual/Virtual DOM  is created as view.    React app ---> Visual Dom----> Actual Dom   (Analogy,we write code in english like code...get converted to byte code)
+Only refreshes the particular part/widget that is changed in visual dom
+Only one way binding --> ie. only parent component to child binding ----> if we wan't other way round we will store in REDUX
+
+Visual/Virtual Dom : Javascript object of actual DOM.  View part    converting html structure to object type.
+Maintains an array(diff) - which has { oldNode , new node and index} kind of like Linked list. So in this way we can render only the part that differs 
+If oldNode and new node are different ---it means we have replace something
+if they are same --- means we have appended
+
+REACT api -
+1. React - basic api 
+2. react-dom  -- for dom-manipulation
+
+ReactDom.render(element,container,callback) ---> if already present ...then updates the element.
+
+
+JSX - JavaScriptXML  --- used for expressing javascript as html {} 
+
+HANDS ON ---
+1. Like angular cli ---> install ----->    npm install create-react-app -g
+2. Creating react app -->               create-react-app bloodbank
+3. Start an app   ---->  npm start
+4. Download create-react-component(tobi) extension
+5. right click src>create comp.(stateless) > GIve a name(say header) > no 
+
+Added bootstrap and font-awesome in package.
+
+in functions in jsx we use className eg. <div className=" "> , we use className because jsx is close to javascript than html. so if we use class , then it will consider class
+as javascript Class and not the attribute of the element.
+
+
+Component :
+Every component accept an arbitrary input called 'props'.  ( we don;t have @input like in angular)
+1. Stateless   --- returned as javascript function.     Functional component. ie. is y it does have state and lifecycle method.
+2. Statefull    --- return statements use class         Class-based component.   will have render function,state and lifecycle method.
+
+In angular we used service to make a call to REST api. (though component can be used too, but we use service generally)
+in react, component can direct make call to REST api
+
+If we are using Statefull component....it MUST implement render function ...as it will be class based
+
+
+Stateless COmponent (Prop passing):
+1. uses arrow function.
+2. Prop is itself an object -- means it can have its own property.
+3. to pass object as prop from parent -   <Component Name   var name = this.objectname><Component>   eg. <Header img = this.imageRef></Header>  same like we pass in angular
+
+***************************************************************************************************************************************************************************************************
+25-7-19
+
+
+JAVASCIPT PURE FUNCTION :  Given a set of values....it will always perform the same thing. If we pass 2,2 it return 4. Again if we pass 10,10 returns. So in stateless we will use PURE FUNCTIOn
+IMPURE FUNCTIOn : Say. we pass 2,2 return 4....then we pass 10,10 again ...it returns 24. Implies ...impure function retain the state.
+
+We dont have directive like ngFor in REACT. 
+1. For loop,so we use javascript Map
+2. We need to unique key (else it will give error) to improve th performance . Key Can be string or number
+
+Prop type ---- > Problem ---> say child is expecting number type to add...but parent passes string. Wrong result...One sol. is using typescript
+So props needs validation.Value passed gets validated for its type. Will show error at runtime in console of broswer
+
+
+there are two ways to send data from parent to child :
+1. <ChildComp.    attribut(eg. name) = "value></ChildComp>                              acces useing props.name
+2. <ChildComp.> <h1>hi</h1> </ChildComp> . Now in child comp we can access it using....   {props.children}. Output will be Hi in h1
+
+
+
+Data flows from Parent to Child(Top Down) wheres Events  flows from CHild to parent(Bottom up). Eg. theres a variable count in Parent but button to increase its value is in child class
+then event can flow upward.
+To change state - we alwasys use Methods...and not directly variable++
+
+*********************************************************************************************************************************************************************************
+
+26-7-19
+
+REST PARAMETERS  --> Like var args in java ----->  Three dots(...) . Its an array. THere can be only one rest parameter and that too at the end.
+Eg, methiodName(a, ...numbers)
+
+SPREAD OPERATOR : Has three dots(...) notation. Reverse of REST
+Creating new data struct with exising one.
+Say we need to create a method with 3 separate parameters but we have array of 3 elements.. Generally we would use a for loop and pass a[0],a[1],a[2]. With spread we can write
+...a  ....
+Eg. let a=["Shubham","Kandwal"]   let b=["Karan","Gupta"]  let c = [...a,...a] so c will become ["Shubham","Kandwal","Karan","Gupta"]
+Say if we want function with 3 para. but arr has only 2 ...we can paas it externally like ....     (...a,3) 
+
+
+DESTRUCTURE:  Breaks array to its elements keeping original array unchanges.
+Eg. let["first","second"] = ["red","green","blue"]
+so first = red,
+    second = green;
+
+SWAPPING ARRAY WITHOUT USING EXTRA PARAM - 
+a = 1,b=2
+[a,b]=[b,a]
+
+Onject DESTRUCTURE :
+var donor = {name:"Ramesh",group:"opos" location:"Chennai"}
+var{name,group} = donor;
+var{name,group} =={name:"Ramesh",location:"Chennai",group:"bpos"}
+console.log(name,group)
+
+
+
+UI and Forms
+*********************************************************************************************************************************************************************************
+29-July-2019
+
+Component Life Cycle : 3 phases - Mount,Update,Unmount
+
+
+Importing Exporting JS file
+Like java ....one js file can have multiple classes....and just like java ...only one class will be default.
+While importing ...if we exported default class....we don't need {} ...if we export a class that is not default we use {} in import LIke import {BrowseRoute}
+
+
+ROuting -
+add 'react-router-dom'  --> npm i ---- --ServiceName
+in index.js ---> import {BrowserRouter} from 'react-router-dom' ...and in render method <App/> is enclsed in <BrowserROuter>
+we create a Stateless component (navigation)--?in APP.js we import  {Route,Switch} from 'react-router-dom' .... create links using Switch and Route to link components to navigation titles --> like href in anchor tag. 
+eg.
+<main>
+    <Switch>
+        <Route exact path='/' component={Content}
+ (Header) ---> import {Link} frm 'react-router-dom'  ----> configure Link to ='/' --> this is visible mapped to App.js
+
+*********************************************************************************************************************************************************************************
+30 July 2019
+REDUX : library for Front-End component . used for Data flow (to any level of hierarchy. like parent to grandchildren)
+        Stores data in one place. Stored in a store.
+        So Data---> in Redux--->where? In object called store
+        No need to create forceful relation just to pass data---> like creating child to pass data from child. Now data available at a store.Whoever needs it can fetch from there.
+STORE : Can store both Data(actual data ) and UI data(data that controls Data. LIke loaded=true--> When this part should be there in UI or not)
+Action : Javascript object. will describe the change..which we will do to state.  and the value change that has to be done
+        must have type property . conventionally String constant like deposit,withdraw
+
+Changes are made with Pure Function(those whose return values depends solely on the values of argument)
+Reducer -->  Javascript pure function. Takes previous state and an action (performs some action on its own, if applicable) and return a next state.
+             There will be multiple reducers to manage specific parts of the state tree.
+
+3 principles of REDUC :
+1. State of entire application kept in object /state tree called a single store.
+2. makes easier to keep track of changes over time and debug.
+3. Helps persist application's state in dev.
+
+Components 'dispatch' state change(action) to store. Not to component(as it would create parent child relationship)
+Component that need the updates about the state changes "subscribe" to the store.
+
+
+ENVIRONMENT SETUP :
+in react app ---> npm i --save Redux
+npm i --save react-Redux
+
+
+Components of REDUX :
+- Store  : Where data is stored
+- Reducer : 
+- Action
+- View (Component)
+
+Action (JS object) :
+Created using action created. COntains 2 thing 
+1. must have ---> Type
+2. Action/Payload (may or may be provided)  -- verb goChennai()
+
+Action Creator ---> to create actions . to wrap action inside a function.  Used when there are multiple action to be performed.
+So action is must required, but action creator may not always be required.
+eg. 
+const const userLoggedIn = (text) =>{
+    return {
+        type: 'USER_LOGGINED_IN';
+        'userName':text
+    }
+} 
+
+REDUCER :
+Takes "state" from redux "action" object. Returns new state by calculating depending action type. If no suitable action ---> then returns intital state.
+If action type matches...calculates new state...and returns new object
+
+BASically uses :- switch statement switch(Action.type) to perform different action on a previous state ...returns a new object to store in Store.
+and there ,ust be a default: which returns prevState
+
+
+
+STORE :
+Created by wrapping up the state
+Methods : 
+getState()
+dispatch() ==action
+subscribe()  -- to store and listen for state changes.
+
+createStore(reducer,)
+Takes reducer as first argument, can also pass initial state
+
+to connect to react(JUST REACT TO REDUX  ----> AND NOT TO THE STATE INSIDE STATE); 
+ReactDOM.render(<Provider store={createdStore}> <App/> </Provider>, doc.getElementById('root'))
+
+
+TO CONNECT THE REACT TO STATE , we need to connect it using connect function which inturn takes an arrow function and the component to which to connect. mapStateToProps()
+
+HIGHER ORDER FUNCTION -- in Javascript --- Function that takes another function as input and return a new function
+*********************************************************************************************************************************************************************************
+
+31-7-2019
+REACT NATIVE -
+we use expo instead of android. Runs on top of react native
+
+npm i -g expo-cli
+expo init ProjectName  --> to create a project
+
+
+
+navigation
+npm i --save reactNavigation
+npm i --save react-native-gesture-handler

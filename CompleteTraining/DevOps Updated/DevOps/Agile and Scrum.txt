@@ -1,0 +1,270 @@
+tinyurl.com/y6yjpzma
+docker id - karan0110
+pass- standard format
+
+
+Agile - Not a development process but a way to measure the process. REady to create and respond to change. Focus on people(developer) rather than process
+
+Sprint - A particular time frame in which a tsak is to be completed. 1-4 weeks
+Iteration - Soft. developed during a unit of time. (Modularity+Time Bound)
+Sprint time - given by developer.  
+
+
+Existing Agile Methodoligies.
+1. Extreme Programming
+2. Agile United process
+3. Scrum :- Almost Same as AUP but flexible.
+Scrum : Agile s/w dev. method for proj. management
+Priortize the work. (by pdt. owner)
+Completion of backlog items(pending..or out of sprint)
+Progess explained  -- using ticketing tools
+
+
+Scrum : Definite proj. management emphasis.
+Scrum Master : Intermediator b/w product owner and developers.Manages scrum project.
+Sprint - 1 to 4 weeks dev. life cycle. Also have pre-sprint and post-sprint
+Daily Scrum - Daily(less than 30 mins.) scrum meeting to monitor status and comm. problems
+
+Project Planning  - based on Product Backlog which contains functions and tech. enhancements . 2 meeting - one to decide features of next sprint other to plan out work.
+
+Daily Scrum ==> Only SCrum Master ..runs or solves problems
+Sprint Meeting --> Scrum master + Prd. owner
+
+Core roles ==== roles committed to project. Decided by project owner or stakeholder. (not related eg. like dev. inside the office only)
+
+
+Artifacts / Product Backlog - list where all the requirements are mentioned for a project. In the form of user stories.
+
+Burn Down Chart - shows the remaining task/user stories. Updated everyday
+
+************************************************************************************************************************************************************************************************************************
+29-8-2019
+DEVOPS - ADvanced agile. Adding tool to every step of agile.
+COmbination of Development And Operation Cycle --
+
+plan                                            deploy
+code    <----------> Integration <---------->   operate
+build                                           monitor
+test
+
+
+
+
+Git Bash :
+
+git init
+git status - current status of repo
+git add file name
+git commit
+git logs
+git diff ---> diff. between working and local directory
+git diff --stage
+
+************************************************************************************************************************************************************************************************************************
+30 Aug
+
+Jenkins - CICD tool Cont. Integration Cont. Deployment
+-OPen Source
+- detects changes in subversions (SCM) and perform (build,test,deploy,test,package)
+
+
+Job - unit of work for project
+view - user defined collection of jobs or a workflow
+master - central jenkins master --- does job scheduling.
+slave - execure one or more jobs within slots(executors)
+workspace - area where all the data is collected when job is executing.
+plugin  - to connect to other tools like maven for building project...or junit for testing
+
+192.168.85.130
+
+************************************************************************************************************************************************************************************************************************
+take ip address
+open browser ---  ip address :8080
+
+Executor - No of Executors depend on the CPU,RAM & network width --- So 2 CPU with 1 GB ram ...and 20 jobs each requiring 1 CPU 1 GB ram ...so no. of max. executors can be 2 only.
+Labels - GIving labels (Say java, python )etc ---grouping of machines...-- and telling to run on the node or labelled node.
+Quiet Period = Giving extra time to jenkins for a task ...say trigger in jenkin after git upload...so 1st triggered...tell jenkins 2 wait for another x number of minutes in case user makes another change withn x minutes
+so it gets in the same trigger rather than ...another trigger.
+
+
+Create new job -- give name
+freestyle
+In job configuration - select label if configured in jenkins. If say label configured in jenkins as MAS but not in job...it won't be built
+Build now - for execution
+
+Discard Old build ---> will keep Max# no. of builds.....apart from last successfull build
+
+If concurrency not there -->
+Then timeout time will overpower throttle time(for concurrency)
+
+
+If concurrency there..
+Then throttle time will get precedence.
+
+
+H/30 H(22-3) 10-20 2,4,6 9,11,12
+
+************************************************************************************************************************************************************************************************************************
+3-9-19
+
+Container - like normal container...used to contain something...and needs a hardware.
+Just like a parasite..it needs a body
+container needs ships
+
+DOCKER- Open Source tool for deloyment of 
+A container...first product of container
+
+It compresses the whole project environment...all the environment..frontend backend everything into an image.
+
+We just need to build the image and a container 
+
+
+Virtual Machine  -->  First system--> then Windows host ---> Then VM player -->  ( Then cent OS ---> then binaries/libraries -----> Then apps) x n
+SERVER --> HOST OS --> Hypervisor --->    (Guest OS-->bin/lib-->App1)
+                                  ---->     (Guest OS-->bin/lib-->App2)      
+
+Docker -->  First system--> then Windows host --> Docker engine -->( Then cent OS ---> then binaries/libraries -----> Then apps) x n
+SERVER --> HOST OS -->Docker Engine--->    (bin/lib-->App1)
+                                   ---->   (bin/lib-->App2)
+
+
+CENT OS 
+1. sudo yum install docker -y
+2. service docker start
+3. chkconfig docker on          -- even on reboot
+4. service docker status        to check the status of docker service
+
+
+Image - Offline copy of what is to be run
+iso file is not a image ..as it asks for installation type and commands....Once it is installed.. WE can take the image.
+This is the image....now we don't need to install ...it is installed already. Its offline copy.
+
+Container - is a running copy with RAM,file etc
+
+
+Image - compressed form of all the things required by container
+
+img vs container   ===>> img vs virtual machine
+
+COMMANDS
+docker run "imageName"              --> Creates container from this image          
+- creates a container ie(running image from that copy) 
+First checks from the local repository.
+Then it goes to the docker.io --> hub.docker.com ie. Central repository of docker. So hello-world in image in  
+
+
+
+docker images  -- to list images
+docker ps --- to list container (running)
+docker ps -a ---> to list all the container (even stopped) --> no commands inside container that is letting the container open..so it shuts
+docker rmi "imageName/imageId"  - to delete image from local repo
+docker pull "imageName"  - to pull from central repo
+docker container containerId/prune - prune removes all the containers(even all the stopped containers also) 
+
+To give custom name
+docker run --name "customeName" "imageName" "any command"
+
+TO get interactive session
+docker run "customeName" -it "imageName"
+goes inside the docker
+create a file
+commit --> to save it to image
+
+docker commit "containerName" "imageName"
+
+
+
+Images downloaded from central repo will not be deleted ....as it is pulled through linked pull..So even container is stopped it won't let us delete.
+So delete the container first , then image.
+
+if we delete image forcefully ...and try to run the container. IT will not run. just shows container id.
+
+
+Say 1 image...running of container ....done a lot of work on it say for month(new state of image)....we know it is stable...so we can commit it....It will create a new image.
+New time we can run this image on a container. In short, we can create image inside a container 
+
+
+eg.   docker run --name custom01 -it busybox                    // it for interactive session
+#vi file1 (write anything)
+verify container is running (in other terminal)   docker ps
+#exit  (stops the container)
+docker commit "containerId" "newImageName(say XYZ)"             -- Convert updated container to image
+A new image will be created in local repo.
+
+To test new image...
+1. Clean existing stopped containers (docker container prune) . Check if all deleted using docker container prune
+2. docker run --name "customName" -it XYZ 
+do ls to check if "file1" exists or not
+
+
+
+
+To push to central repo :
+docker po
+
+
+docker run -d -p 90 8080 tomcat                        //90 is local linus machine ip address       //8080 is container port    
+
+
+
+Every time we change a file we will need to create a new image--- not recommended
+VOlume - put the file in VOlume(on host os) rather than image 
+container points to volume for app.py file
+image creates containers --> runs python app.py --> links to volume on local ...renders app.py
+
+If app.py was inside image we would have to create new image everytime app.py was updated
+
+
+Dockerfile - to create image
+Docker compose - to create container and  To create communicate between multiple dockers
+
+- docker-compose up : builds th edockers with resp. dockerfile ..creates and runs container
+- docker-compose down : stops the container ..deletes the  container ..keeps the image
+
+- docker-compose bbuild : Only builds dockers from dockerfiles doesn't create and start the container
+
+
+Kubernetes: TO manage containers. Say we are having lakh or billions of containers. Keeping record of each host ..everything not possible.
+Can start ,stop update and manage cluster of machines running containers in a consistent and maintainable way.
+
+***********************************************************************************************************************************************************************
+Availability ZOnes (min 100 km distance) ---> makes --> regions
+VPC - VIrtual private cloud = to create a network.
+1. Create VPC (main cdr)
+2. Create subnet
+
+2 vpc's don't talk to each other.
+
+Select IP's for VPC's through private network
+Default VPC --> 172.31.0.0/16
+
+***********************************************************************************************************************************************************************
+VOlume 
+
+3 types of storage
+1. BLock level
+2. File level - human readable
+3. Object level - like git hub file...binary level not humar readable
+
+VOlume :
+- BLock level storage
+- can be assigned to single ec2 instance
+- can be assigned to a particular Availability Zone
+
+VOlumes are of 2 types :
+1 Elastic BLock Store(EBS)
+2 Instance Store
+
+
+EBS  
+- SSD
+- HDD
+
+
+bucket name - vzsk2logbucket01
+              vzskdatabucket01  
+              vzskwebhosting01  
+target prefix for buckt - skbucket02
+
+
+IAM - VZ_SK_ROLE_S3_FULL_ACCESS  

@@ -1,0 +1,22 @@
+package com.example.demo.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.model.Payment;
+import com.example.demo.repos.PaymentRepository;
+
+@Service
+public class PaymentService {
+
+	@Autowired
+//	private PaymentRepository repo;  This is not used as it will autowire the repo to only PaymentRepo.  So we use super set CrudRepository 
+//  if multiple repositry are extending Crud Repository we can use "Qualifier="CashRepository"
+//  Now when we use CrudRepository ...it will autowire the repo which has @Repository annotaion...if more than one have @Annotaion, we can use @Qualifier("PaymentRepo") below @Autowire
+	
+	private CrudRepository<Payment, Long> repo;
+	public Iterable<Payment> findAll(){
+		this.service.fidAll()
+	}
+}

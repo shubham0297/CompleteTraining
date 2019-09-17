@@ -1,0 +1,6 @@
+<p>search works!</p>
+<input type="text" [(ngModel)]='city'>      <!-- binding the value of input ...to city property in search component. Keep updating character by char. and not after whole string and some carriage return -->
+<!-- Also input type is a form module which we don't have by default in app.module.ts so we add it there in import line-->
+<!-- [()] -- Two way binding ...property and value-->
+<app-fetch-operator [searchCity]="city" (operator)="onChange($event)"></app-fetch-operator>
+{{responseFromChild}}

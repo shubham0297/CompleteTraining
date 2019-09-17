@@ -1,0 +1,18 @@
+package com.example.demo.entity;
+import java.util.*;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="vayutel_catalog")
+public class Catalog {
+	
+	@Id
+	@GeneratedValue
+	private long catalogId;
+	private String description;
+	Set<Plan> plans ; 
+}

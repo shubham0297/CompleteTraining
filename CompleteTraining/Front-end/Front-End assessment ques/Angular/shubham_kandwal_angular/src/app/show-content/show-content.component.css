@@ -1,0 +1,10 @@
+@import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+tr{
+    text-align: left
+}
+
+img{
+    width: 5em;
+    height:5em
+}

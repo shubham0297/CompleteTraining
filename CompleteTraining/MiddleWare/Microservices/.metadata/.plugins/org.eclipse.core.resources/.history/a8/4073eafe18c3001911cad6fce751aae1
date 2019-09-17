@@ -1,0 +1,11 @@
+package com.example.demo.services;
+
+import org.springframework.stereotype.Service;
+
+import com.example.demo.repos.PaymentRepository;
+
+@Service
+public class PaymentService {
+
+	private PaymentRepository<Payment, Long>
+}
